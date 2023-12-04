@@ -1,0 +1,55 @@
+<%- include("header") -%>
+
+    <body class="bg-gradient-to-br from-blue-300 via-purple-500 to-green-500">
+
+        <div class="min-h-screen flex items-center justify-center">
+            <div class="bg-grey rounded-lg shadow-md p-8 w-auto border border-black" >
+
+
+                <h1 class="text-4xl font-bold mb-4 text-center text-gray-800">
+
+                    <%= listTitle %>
+
+                </h1>
+                <!-- <h1 class="text-base font-bold mb-4 text-center text-gray-500 pb-6">
+
+                    Add items to get started.
+
+                </h1> -->
+
+
+                <ul class="space-y-2 text-lg text-gray-700">
+
+                    <% newListItems.forEach(item=> { %>
+
+                        <div class="flex flex-row space-x-3 items-center">
+                            <form action="/<%= listTitle %>/delete" method="post" class="flex items-center">
+                                <input type="checkbox" class="my-2 mr-4" value="<%= item._id %>" name="checkbox"
+                                    onchange="this.form.submit()">
+                                <p style="-webkit-text-stroke-width: 0.7px; -webkit-text-stroke-color: black; " class="text-white text-stroke" >
+                                    <%= item.name %>
+                                </p> <!-- Display item name in a <p> tag -->
+                            </form>
+                        </div>
+
+                        <% }); %>
+
+                </ul>
+
+                <form action="/<%= listTitle %>" method="post" class="flex items-center justify-center mt-4">
+                    <input type="text" placeholder="Add new task" name="newItem" autocomplete="off"
+                        class="border rounded px-4 py-2 w-48 focus:outline-none focus:ring focus:border-blue-300">
+
+
+                    <button type="submit" name="list" value="<%= listTitle %>"
+                        class="bg-blue-700 text-white px-4 py-2 ml-2 rounded-full hover:bg-blue-800 hover:text-black">+</button>
+
+                    <div class="delete flex flex-row">
+                        <button type="submit" name="deleteList" value="true"
+                            class="bg-red-500 text-white px-2 py-2 ml-2 rounded hover:bg-red-600">Delete List</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <%- include("footer") -%>

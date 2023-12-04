@@ -1,0 +1,9 @@
+/* In your CSS file, such as styles.css or custom.css */
+@layer utilities {
+    .text-stroke {
+      -webkit-text-stroke-width: 1px; /* For WebKit (Safari, Chrome, etc.) */
+      -webkit-text-stroke-color: black; /* For WebKit (Safari, Chrome, etc.) */
+      text-shadow: 0.5px 0 black, 0 0.5px black, 0 -0.5px black, -0.5px 0 black; /* Simulating text-stroke */
+    }
+  }
+  
